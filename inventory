@@ -1,8 +1,8 @@
-[ansible]
-ansible ansible_connection=local ansible_host=localhost
+[a_ansible]
+a_ansible ansible_connection=local ansible_host=localhost
 
-[web]
-web
+[a_web]
+a_web
 
-[db]
-db
+[a_db]
+a_db
