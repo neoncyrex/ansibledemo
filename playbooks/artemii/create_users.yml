@@ -1,0 +1,28 @@
+---
+- name: Create users
+  hosts: a_ansible
+  become: true
+  gather_facts: true
+  tasks:
+   - name: Include variables
+     include_vars: "{{item}}"
+     with_items:
+      - users.yml
+      - groups.yml
+
+   - name: Create groups
+     group: name={{item}}
+     with_items: "{{creategroups}}"
+
+   - name: Create users
+     user: name={{item}}
+     with_items: "{{users}}"
+
+   - name: Create special users
+     user: name={{item.n}} shell={{item.shell}}
+     with_items:
+      - { n: user100, shell: /bin/bash }
+      - { n: user200, shell: /sbin/nologin }
+      - { n: user300, shell: /bin/sh }
+      - "{{specialusers}}"
+

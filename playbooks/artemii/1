@@ -1,0 +1,10 @@
+---
+- hosts: ansible
+  become: false
+  gather_facts: false
+  tasks:
+   - include_vars: addresses.yml
+
+   - name: Display users
+     debug: msg="Username={{item.key}}"
+     with_hash:  "{{myfriends}}"

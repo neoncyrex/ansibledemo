@@ -1,0 +1,15 @@
+---
+myfriends:
+ andrei:
+  address: Moscow, Blablabla
+  name: Andrey
+  lastname: Bobrov
+ dmitrii:
+  address: Kirov, Blablabla
+  name: DMitrii
+  lastname: Ivonin
+ evgeniia:
+  address: US, CO, Highlands ranch
+  name: Evgeniia
+  lastname: Vichikova
+

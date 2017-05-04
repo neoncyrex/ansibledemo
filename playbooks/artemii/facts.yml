@@ -1,0 +1,11 @@
+---
+- hosts: a_ansible
+  gather_facts: true
+  become: true
+  tasks:
+   - name: Create  /var/www/html
+     file: path=/var/www/html state=directory recurse=true
+ 
+   - name: Create info file
+     copy: dest=/var/www/html/ansible_defaults.html content="{{ansible_hostname}} {{ansible_processor_vcpus}} {{ansible_default_ipv4.address}} {{ansible_default_ipv4.macaddress | upper}}\n" mode=2644 owner=neon
+  

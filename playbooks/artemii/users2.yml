@@ -1,0 +1,10 @@
+---
+users:
+ user1:
+   shell: /bin/bash
+   comment: User 1
+   group: wheel
+ user2:
+   shell: /bin/sh
+   comment: User 2
+   group: bin
