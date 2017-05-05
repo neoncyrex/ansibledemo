@@ -1,0 +1,28 @@
+---
+- hosts: a_ansible
+  gather_facts: true
+  become: true
+  tasks:
+
+    - name: Install required packages
+      yum: name={{item}} state=installed
+      with_items:
+       - httpd
+       - mod_ssl
+
+    - name: Start and enable apache
+      service: name=httpd state=started enabled=true
+
+    - name: Configure httpd.conf
+      copy: src=files/apache/httpd.conf.example dest=/etc/httpd/conf/httpd.conf owner=root mode=0644
+      notify: restart_httpd
+
+    - name: Configure ssl.conf
+      copy: src=files/apache/ssl.conf.example dest=/etc/httpd/conf.d/ssl.conf owner=root mode=0644
+      notify: restart_httpd
+
+   handlers:
+    - name: restart_httpd
+      service: name=httpd state=restarted
+
+
