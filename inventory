@@ -1,0 +1,8 @@
+[a_ansible]
+a_ansible ansible_connection=local ansible_host=localhost
+
+[a_web]
+a_web
+
+[a_db]
+a_db

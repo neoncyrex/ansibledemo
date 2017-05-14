@@ -1,0 +1,8 @@
+---
+- hosts: a_ansible
+  become: false
+  gather_facts: false
+  tasks:
+   - name: create files
+     copy: dest=/tmp/{{item}}.txt content="Testfile named {{item}}"
+     with_sequence: start=20 end=32 

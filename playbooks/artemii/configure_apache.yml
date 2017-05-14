@@ -1,0 +1,19 @@
+---
+- hosts: a_ansible
+  gather_facts: true
+  become: true
+  tasks:
+    - name: Include vars
+      include_vars: apache_vars.yml
+      ignore_errors: true
+
+    - name: Include tasks to install apache
+      include: install_httpd.yml
+
+#    - name: Install required packages
+#      yum: name={{item}} state=installed
+#      with_items: "{{packages}}"
+
+    - name: Start apache
+      service: name=httpd state=started enabled=true
+

@@ -1,0 +1,12 @@
+---
+users:
+ - user1
+ - user2
+ - user3
+ - user15
+
+specialusers:
+ - { n: artemii, shell: /bin/bash }
+ - { n: evgeniia, shell: /sbin/nologin }
+
+

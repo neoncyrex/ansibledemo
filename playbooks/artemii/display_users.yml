@@ -1,0 +1,10 @@
+---
+- hosts: a_ansible
+  become: false
+  gather_facts: false
+  tasks:
+   - include_vars: addresses.yml
+
+   - name: Display users
+     debug: msg="Username {{item.key}} address {{item.value.address}}"
+     with_dict: "{{myfriends}}"
